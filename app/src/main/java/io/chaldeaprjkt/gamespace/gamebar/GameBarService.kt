@@ -41,6 +41,7 @@ import com.android.systemui.screenrecord.IRecordingCallback
 import dagger.hilt.android.AndroidEntryPoint
 import io.chaldeaprjkt.gamespace.R
 import io.chaldeaprjkt.gamespace.data.AppSettings
+import io.chaldeaprjkt.gamespace.settings.SettingsActivity
 import io.chaldeaprjkt.gamespace.utils.ScreenUtils
 import io.chaldeaprjkt.gamespace.utils.dp
 import io.chaldeaprjkt.gamespace.utils.registerDraggableTouchListener
@@ -352,6 +353,10 @@ class GameBarService : Hilt_GameBarService() {
         actionPanel.alpha = appSettings.menuOpacity / 100f
         actionPanel.setOnClickListener {
             showPanel = !showPanel
+        }
+        actionPanel.setOnLongClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            true
         }
     }
 
