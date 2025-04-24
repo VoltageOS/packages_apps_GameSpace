@@ -89,4 +89,6 @@
     <string name="notification_danmaku">Danmaku</string>
     <string name="state_enabled">Enabled</string>
     <string name="state_disabled">Disabled</string>
+    
+    <string name="gamespace_running">Game Space is running</string>
 </resources>
