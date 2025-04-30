@@ -40,15 +40,15 @@ class SystemSettings @Inject constructor(
             )
         }
 
-    var reTicker
+    var island
         get() =
             Settings.System.getIntForUser(
-                resolver, Settings.System.RETICKER_STATUS, 0,
+                resolver, Settings.System.ISLAND_NOTIFICATION, 0,
                 UserHandle.USER_CURRENT) == 1
         set(it) {
             Settings.System.putIntForUser(
                 resolver,
-                Settings.System.RETICKER_STATUS,
+                Settings.System.ISLAND_NOTIFICATION,
                 it.toInt(),
                 UserHandle.USER_CURRENT
             )
