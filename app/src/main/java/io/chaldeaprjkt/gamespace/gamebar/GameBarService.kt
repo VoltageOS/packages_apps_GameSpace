@@ -201,13 +201,13 @@ class GameBarService : Hilt_GameBarService() {
         if (::rootPanelView.isInitialized && rootPanelView.isAttachedToWindow) {
             wm.removeViewImmediate(rootPanelView)
         }
-        if (rootBarView.isAttachedToWindow) {
+        if (rootBarView.isAttachedToWindow && appSettings.showOverlay) {
             wm.removeViewImmediate(rootBarView)
         }
     }
 
     private fun updateLayout(with: (WindowManager.LayoutParams) -> Unit = {}) {
-        if (rootBarView.isAttachedToWindow) {
+        if (rootBarView.isAttachedToWindow && appSettings.showOverlay) {
             wm.updateViewLayout(rootBarView, barLayoutParam.apply(with))
         }
     }
