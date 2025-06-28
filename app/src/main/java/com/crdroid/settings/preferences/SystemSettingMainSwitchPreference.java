@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.crdroid.settings.preferences;
+package com.voltage.support.preferences;
 
 import android.content.Context;
 import android.provider.Settings;
@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 
 import com.android.settingslib.widget.MainSwitchPreference;
 
-import com.crdroid.settings.preferences.SystemSettingsStore;
+import com.voltage.support.preferences.SystemSettingsStore;
 
 public class SystemSettingMainSwitchPreference extends MainSwitchPreference {
 
