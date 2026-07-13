@@ -61,6 +61,11 @@
             android:exported="false" />
 
         <activity
+            android:name=".settings.SessionReportActivity"
+            android:exported="false"
+            android:label="@string/session_report_title" />
+
+        <activity
             android:name=".preferences.appselector.AppSelectorActivity"
             android:exported="false"
             android:label="@string/app_selector_label" />

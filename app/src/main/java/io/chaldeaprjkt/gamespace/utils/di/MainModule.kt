@@ -24,6 +24,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.chaldeaprjkt.gamespace.data.AppSettings
 import io.chaldeaprjkt.gamespace.data.GameSession
+import io.chaldeaprjkt.gamespace.data.SessionRecorder
 import io.chaldeaprjkt.gamespace.data.SystemSettings
 import io.chaldeaprjkt.gamespace.utils.DndController
 import io.chaldeaprjkt.gamespace.utils.GameModeUtils
@@ -59,6 +60,11 @@ object MainModule {
     fun provideDndController(@ApplicationContext context: Context, appSettings: AppSettings): DndController {
         return DndController(context, appSettings)
     }
+
+    @Provides
+    @Singleton
+    fun provideSessionRecorder(@ApplicationContext context: Context, gson: Gson) =
+        SessionRecorder(context, gson)
 
     @Provides
     @Singleton

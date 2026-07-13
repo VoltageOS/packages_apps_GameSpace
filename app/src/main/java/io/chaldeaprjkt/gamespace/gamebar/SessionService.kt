@@ -31,6 +31,7 @@ import android.util.Log
 import dagger.hilt.android.AndroidEntryPoint
 import io.chaldeaprjkt.gamespace.data.AppSettings
 import io.chaldeaprjkt.gamespace.data.GameSession
+import io.chaldeaprjkt.gamespace.data.SessionRecorder
 import io.chaldeaprjkt.gamespace.data.SystemSettings
 import io.chaldeaprjkt.gamespace.utils.DndController
 import io.chaldeaprjkt.gamespace.utils.GameModeUtils
@@ -64,6 +65,9 @@ class SessionService : Hilt_SessionService() {
 
     @Inject
     lateinit var dndController: DndController
+
+    @Inject
+    lateinit var sessionRecorder: SessionRecorder
 
     private val scope = CoroutineScope(Job() + Dispatchers.IO)
     private var isRunning = false
@@ -138,6 +142,7 @@ class SessionService : Hilt_SessionService() {
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onDestroy() {
+        sessionRecorder.stop()
         if (isBarConnected) {
             gameBar.onGameLeave()
             unbindService(gameBarConnection)
@@ -175,6 +180,14 @@ class SessionService : Hilt_SessionService() {
                 screenUtils.stayAwake = appSettings.stayAwake
                 screenUtils.lockGesture = appSettings.lockGesture
                 dndController.onGameStart()
+                val taskId = try {
+                    ActivityTaskManager.getService()?.focusedRootTaskInfo
+                        ?.takeIf { it.topActivity?.packageName == app }
+                        ?.taskId ?: -1
+                } catch (e: RemoteException) {
+                    -1
+                }
+                sessionRecorder.start(taskId, app)
             } ?: run {
                 Log.e(TAG, "Command Intent is uninitialized. Stopping service.")
                 stopSelf()

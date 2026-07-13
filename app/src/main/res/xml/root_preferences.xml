@@ -133,6 +133,15 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:key="session_report"
+        android:title="@string/session_report_title"
+        android:summary="@string/session_report_pref_summary">
+        <intent
+            android:targetPackage="io.chaldeaprjkt.gamespace"
+            android:targetClass="io.chaldeaprjkt.gamespace.settings.SessionReportActivity" />
+    </Preference>
+
     <io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreference
         android:key="quick_start_apps"
         android:title="@string/quick_start_apps_title"

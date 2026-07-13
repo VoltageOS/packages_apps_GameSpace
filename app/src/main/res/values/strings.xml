@@ -66,6 +66,18 @@
     <string name="per_app_downscale_title">Resolution downscale</string>
     <string name="per_app_downscale_dialog_title">Render resolution\nApplies in Performance or Battery mode after game restart</string>
     <string name="per_app_downscale_off">Off (native resolution)</string>
+
+    <string name="session_report_title">Session report</string>
+    <string name="session_report_pref_summary">FPS, thermal headroom and power draw from the last game session</string>
+    <string name="session_report_summary_fmt">%1$d min \u2022 %2$d%% battery used</string>
+    <string name="session_report_empty">No session recorded yet</string>
+    <string name="session_graph_fps">FPS</string>
+    <string name="session_graph_thermal">Thermal headroom</string>
+    <string name="session_graph_temp">Battery temperature</string>
+    <string name="session_graph_power">Power draw</string>
+    <string name="session_graph_gpu_load">GPU load</string>
+    <string name="session_graph_cpu_freq">CPU frequency</string>
+    <string name="session_graph_gpu_freq">GPU frequency</string>
     <string name="game_mode_unsupported">Unsupported</string>
     <string name="game_mode_standard">Standard</string>
     <string name="game_mode_performance">Performance</string>
