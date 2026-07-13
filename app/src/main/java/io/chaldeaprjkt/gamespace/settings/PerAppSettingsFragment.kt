@@ -17,6 +17,8 @@
 package io.chaldeaprjkt.gamespace.settings
 
 import android.app.Activity
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -38,6 +40,8 @@ import io.chaldeaprjkt.gamespace.data.GameConfig
 import io.chaldeaprjkt.gamespace.data.SystemSettings
 import io.chaldeaprjkt.gamespace.data.UserGame
 import io.chaldeaprjkt.gamespace.utils.GameModeUtils
+
+import java.util.Locale
 
 import javax.inject.Inject
 
@@ -98,6 +102,13 @@ class PerAppSettingsFragment : Hilt_PerAppSettingsFragment(),
             onPreferenceChangeListener = this@PerAppSettingsFragment
 
         }
+        findPreference<ListPreference>(PREF_DOWNSCALE)?.apply {
+            value = "%.2f".format(
+                Locale.US,
+                gameModeUtils.downscaleFactorOf(currentGame?.packageName)
+            )
+            onPreferenceChangeListener = this@PerAppSettingsFragment
+        }
         findPreference<Preference>(PREF_UNREGISTER)?.apply {
             summary = context.getString(
                 R.string.per_app_unregister,
@@ -119,22 +130,42 @@ class PerAppSettingsFragment : Hilt_PerAppSettingsFragment(),
             PREF_PREFERRED_MODE -> {
                 val newMode = (newValue as String).toIntOrNull() ?: 1
                 gameModeUtils.setGameModeFor(gameInfo.packageName, settings, newMode)
+                forceStop(gameInfo.packageName)
                 return true
             }
             PREF_USE_ANGLE -> {
                 val newModes = GameConfig.ModeBuilder.apply {
                     useAngle = newValue as Boolean
+                    downscale = gameModeUtils.downscaleFactorOf(gameInfo.packageName)
                 }.build()
                 gameModeUtils.setIntervention(gameInfo.packageName, newModes)
+                forceStop(gameInfo.packageName)
+                return true
+            }
+            PREF_DOWNSCALE -> {
+                val newModes = GameConfig.ModeBuilder.apply {
+                    useAngle = gameModeUtils.isAngleUsed(gameInfo.packageName)
+                    downscale = (newValue as String).toFloatOrNull() ?: GameConfig.NO_DOWNSCALE
+                }.build()
+                gameModeUtils.setIntervention(gameInfo.packageName, newModes)
+                forceStop(gameInfo.packageName)
                 return true
             }
         }
         return false
     }
 
+    private fun forceStop(packageName: String) {
+        runCatching {
+            (context?.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager)
+                ?.forceStopPackage(packageName)
+        }
+    }
+
     companion object {
         const val PREF_PREFERRED_MODE = "per_app_preferred_mode"
         const val PREF_USE_ANGLE = "per_app_use_angle"
+        const val PREF_DOWNSCALE = "per_app_downscale"
         const val PREF_UNREGISTER = "per_app_unregister"
     }
 }

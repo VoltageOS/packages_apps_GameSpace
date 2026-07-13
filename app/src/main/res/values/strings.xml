@@ -63,6 +63,9 @@
     <string name="per_app_angle_summary">Using ANGLE renderer instead of native GLES drivers.\nWARNING!! May breaks game graphics, use with caution!</string>
     <string name="cant_find_angle_pkg">ANGLE is not available on your system</string>
     <string name="per_app_unregister">Remove %1$s from library</string>
+    <string name="per_app_downscale_title">Resolution downscale</string>
+    <string name="per_app_downscale_dialog_title">Render resolution\nApplies in Performance or Battery mode after game restart</string>
+    <string name="per_app_downscale_off">Off (native resolution)</string>
     <string name="game_mode_unsupported">Unsupported</string>
     <string name="game_mode_standard">Standard</string>
     <string name="game_mode_performance">Performance</string>

@@ -102,6 +102,16 @@ class GameModeUtils @Inject constructor(private val context: Context) {
             ?.contains("useAngle=true")
     } ?: false
 
+    fun downscaleFactorOf(packageName: String?) = packageName?.let { pkg ->
+        DeviceConfig.getString(DeviceConfig.NAMESPACE_GAME_OVERLAY, pkg, null)
+            ?.split(":")
+            ?.firstOrNull { it.contains("mode=${GameManager.GAME_MODE_PERFORMANCE}") }
+            ?.split(",")
+            ?.firstOrNull { it.startsWith("downscaleFactor=") }
+            ?.substringAfter('=')
+            ?.toFloatOrNull()
+    } ?: GameConfig.NO_DOWNSCALE
+
     companion object {
         const val defaultPreferredMode = GameManager.GAME_MODE_STANDARD
         const val ACTION_ANGLE_FOR_ANDROID = "android.app.action.ANGLE_FOR_ANDROID"

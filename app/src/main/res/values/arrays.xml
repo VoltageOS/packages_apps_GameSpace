@@ -49,6 +49,28 @@
         <item>@string/game_mode_battery</item>
     </string-array>
 
+    <string-array name="per_app_downscale_entries" translatable="false">
+        <item>@string/per_app_downscale_off</item>
+        <item>90%</item>
+        <item>85%</item>
+        <item>80%</item>
+        <item>75%</item>
+        <item>70%</item>
+        <item>60%</item>
+        <item>50%</item>
+    </string-array>
+
+    <string-array name="per_app_downscale_values" translatable="false">
+        <item>1.00</item>
+        <item>0.90</item>
+        <item>0.85</item>
+        <item>0.80</item>
+        <item>0.75</item>
+        <item>0.70</item>
+        <item>0.60</item>
+        <item>0.50</item>
+    </string-array>
+
     <string-array name="notification_mode_entries" translatable="false">
         <item>@string/notification_mode_hide</item>
         <item>@string/notification_mode_headsup</item>
