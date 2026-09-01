@@ -11,7 +11,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "io.chaldeaprjkt.gamespace"
+        applicationId "com.voltage.gamespace"
         minSdk 33
         targetSdk 33
         versionCode 100

@@ -16,7 +16,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.chaldeaprjkt.gamespace"
+    package="com.voltage.gamespace"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
@@ -80,7 +80,7 @@
             android:exported="false" />
 
         <service
-            android:name="io.chaldeaprjkt.gamespace.gamebar.DanmakuServiceListener"
+            android:name="com.voltage.gamespace.gamebar.DanmakuServiceListener"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
             android:exported="true">
             <intent-filter>
@@ -93,8 +93,8 @@
             android:exported="true"
             android:permission="android.permission.MANAGE_GAME_MODE">
             <intent-filter>
-                <action android:name="io.chaldeaprjkt.gamespace.action.GAME_START" />
-                <action android:name="io.chaldeaprjkt.gamespace.action.GAME_STOP" />
+                <action android:name="com.voltage.gamespace.action.GAME_START" />
+                <action android:name="com.voltage.gamespace.action.GAME_STOP" />
             </intent-filter>
         </receiver>
     </application>

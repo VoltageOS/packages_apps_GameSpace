@@ -23,23 +23,23 @@
     android:columnCount="2"
     android:orientation="horizontal">
 
-    <io.chaldeaprjkt.gamespace.widget.tiles.GameModeTile
+    <com.voltage.gamespace.widget.tiles.GameModeTile
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <io.chaldeaprjkt.gamespace.widget.tiles.FPSInfoTile
+    <com.voltage.gamespace.widget.tiles.FPSInfoTile
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <io.chaldeaprjkt.gamespace.widget.tiles.StayAwakeTile
+    <com.voltage.gamespace.widget.tiles.StayAwakeTile
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <io.chaldeaprjkt.gamespace.widget.tiles.LockGestureTile
+    <com.voltage.gamespace.widget.tiles.LockGestureTile
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <io.chaldeaprjkt.gamespace.widget.tiles.NotificationTile
+    <com.voltage.gamespace.widget.tiles.NotificationTile
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

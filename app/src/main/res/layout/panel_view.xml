@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <io.chaldeaprjkt.gamespace.widget.BatteryView
+                <com.voltage.gamespace.widget.BatteryView
                     android:id="@+id/battery_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     android:textSize="13sp" />
             </RelativeLayout>
 
-            <io.chaldeaprjkt.gamespace.widget.QuickStartAppView
+            <com.voltage.gamespace.widget.QuickStartAppView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -100,11 +100,11 @@
                     android:id="@+id/quick_start_app_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-            </io.chaldeaprjkt.gamespace.widget.QuickStartAppView>
+            </com.voltage.gamespace.widget.QuickStartAppView>
 
             <include layout="@layout/tiles" />
 
-            <io.chaldeaprjkt.gamespace.widget.MemoryView
+            <com.voltage.gamespace.widget.MemoryView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

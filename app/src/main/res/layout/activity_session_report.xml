@@ -52,37 +52,37 @@
                 android:layout_marginTop="4dp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_fps"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="24dp" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_thermal"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="16dp" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_power"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="16dp" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_gpu_load"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="16dp" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_cpu_freq"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="16dp" />
 
-            <io.chaldeaprjkt.gamespace.widget.SessionGraphView
+            <com.voltage.gamespace.widget.SessionGraphView
                 android:id="@+id/graph_gpu_freq"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
